@@ -85,11 +85,16 @@ let-env NU_PLUGIN_DIRS = [
 
 # User configuration
 let-env EDITOR = "nano"
-let-env RUSTC_WRAPPER = "sccache"
 let-env VOLTA_HOME = $"($env.HOME)/.volta"
 
-let-env PATH = ($env.PATH | split row (char esep) | prepend '/home/demize/.cargo/bin')
-let-env PATH = ($env.PATH | split row (char esep) | prepend $"($env.VOLTA_HOME)/bin")
+if ('/home/demize/.cargo/bin' | path type) == "dir" {
+    let-env PATH = ($env.PATH | split row (char esep) | prepend '/home/demize/.cargo/bin')
+    let-env RUSTC_WRAPPER = "sccache"
+}
+
+if ($"($env.VOLTA_HOME)/bin" | path type) == "dir" {
+    let-env PATH = ($env.PATH | split row (char esep) | prepend $"($env.VOLTA_HOME)/bin")
+}
 
 # Starship setup
 mkdir ~/.cache/starship
