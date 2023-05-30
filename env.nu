@@ -96,6 +96,10 @@ if ($"($env.VOLTA_HOME)/bin" | path type) == "dir" {
     let-env PATH = ($env.PATH | split row (char esep) | prepend $"($env.VOLTA_HOME)/bin")
 }
 
+if ($"($env.HOME)/.config/nushell/path.nu" | path type) == "file" {
+    ~/.config/nushell/path.nu
+}
+
 # Starship setup
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
