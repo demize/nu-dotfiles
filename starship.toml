@@ -44,6 +44,7 @@ style = "bg:#9A348E"
 [os]
 style = "bg:#9A348E"
 disabled = false # Disabled by default
+symbols = { Alpine = " ", Ubuntu = " " }
 
 [directory]
 style = "bg:#DA627D"
