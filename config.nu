@@ -544,10 +544,6 @@ let-env config = {
 # Starship setup
 source ~/.cache/starship/init.nu
 
-if ($"($env.HOME)/.ssh/ssh-setup.nu" | path type) == "file" {
-  ~/.ssh/ssh-setup.nu
-}
-
 # Completions
 source ~/.config/nushell/completions/git-completions.nu
 source ~/.config/nushell/completions/npm-completions.nu
